@@ -44,7 +44,8 @@ const subtitleLocales = {
 	Chinese: 'zh-Hans',
 	TraditionalChinese: 'zh-Hant',
 	Japanese: 'ja',
-	Korean: 'ko'
+	Korean: 'ko',
+	Thai: 'th'
 };
 let isVoicelinePlaying = false;
 
@@ -77,7 +78,8 @@ const AUDIO_DETAIL = [
             Korean: [
                 "다시 반갑습니다.",
                 "이건 제 비밀 기지입니다"
-            ]
+            ],
+            Thai: ["กลับมาแล้วเหรอ! ฉันอยากเจอคุณครูจัง","นี่ไง ฐานลับของฉันคนเดียว—"]
         }
     },
     {
@@ -88,21 +90,22 @@ const AUDIO_DETAIL = [
                 "ふふっ、でも秘密基地っていうには、ちょっと広いかも。"
             ],
             English: [
-                "It's the place I come to whenever I want some time to myself.",
-                "Hehe, though calling it a 'secret base' might be a bit of a stretch since it's pretty spacious."
+                "This is where I come when I need some alone time.",
+                "Fufu. Maybe it's a bit too big to call it a \"secret\" base."
             ],
             Chinese: [
                 "想要一个人的时候，会去的场所。",
                 "嗯，但是说秘密基地这又太大了。"
             ],
             TraditionalChinese: [
-                "想要一個人的時候，會去的場所。",
-                "嗯，但是說秘密基地這又太大了。"
+                "是我需要獨處的時光時，會來的地方。",
+                "呵呵，不過要說是祕密基地的話，好像有點太寬敞了。"
             ],
             Korean: [
-                "내가 혼자 있는 시간을 할애할 때마다 찾아오는 곳이죠.",
-                "'비밀 기지'라고 부르는 것은 꽤 넓은 곳이기 때문에 다소 긴장일 수도 있습니다."
-            ]
+                "혼자만의 시간이 필요할 때 오는 장소야.",
+                "후훗, 그런데 비밀 기지라고 하기에는, 좀 넓을지도."
+            ],
+            Thai: ["เป็นที่ที่ฉันจะแวะมา ตอนต้องการเวลาส่วนตัวน่ะ","ฮุฮุ แต่มันอาจจะกว้างขวาง เกินกว่าจะเรียกว่าฐานลับก็ได้"]
         }
     },
     {
@@ -113,21 +116,22 @@ const AUDIO_DETAIL = [
                 "私がいつも見ている景色とか……感じてる空気、とか。"
             ],
             English: [
-                "...I don't know, I just really wanted to share this with you, Sensei.",
-                "Like the scenery I always look at... and the air that I feel here."
+                "I just...wanted to share it with you, Sensei.",
+                "The views I see, the things I feel..."
             ],
             Chinese: [
                 "…总觉得，想要和老师共有这片区域。",
                 "我一直以来都在看的景色什么的…感受的空气什么的，这种。"
             ],
             TraditionalChinese: [
-                "…總覺得，想要和老師共有這片區域。",
-                "我一直以來都在看的景色什麼的…感受的空氣什麼的，這種。"
+                "……不知道為什麼，就是想和老師分享呢。",
+                "我一直以來所看見的景色……還有感受到的氛圍之類的……"
             ],
             Korean: [
-                "...알지 않아요, 그냥 이걸 여러분과 나누고 싶었어요, 선생님",
-                "내가 항상 보는 풍경과 내가 느끼는 공기와 같이"
-            ]
+                "……그냥, 선생님이랑 공유하고 싶었어.",
+                "내가 바라보는 풍경과…… 내가 느끼는 분위기를."
+            ],
+            Thai: ["ฉันแค่... อยากแบ่งปันกับคุณครูน่ะ","ทั้งทิวทัศน์ที่ฉันได้เห็น... บรรยากาศที่ฉันได้สัมผัส"]
         }
     },
     {
@@ -139,9 +143,9 @@ const AUDIO_DETAIL = [
                 "先生は、私の特別な人ってこと。"
             ],
             English: [
-                "Even if you asked me why, all I could really say is 'just because'...",
-                "But you see... showing someone your secret hideout is proof that they're special.",
-                "Which means... you're a special person to me, Sensei."
+                "If you're wondering why, I don't have a good answer...",
+                "I guess...telling someone about a secret place... ...means that they're special too.",
+                "You're a special person to me, Sensei."
             ],
             Chinese: [
                 "就算你要问理由我也说不出个所以然就是了…。",
@@ -149,15 +153,16 @@ const AUDIO_DETAIL = [
                 "因为老师对我来说是特别的存在。。"
             ],
             TraditionalChinese: [
-                "就算你要問理由我也說不出個所以然就是了…。",
-                "讓我想想…為什麼我會告訴你這個秘密基地、這正是特別的證明啊。",
-                "因為老師對我來說是特別的存在。。"
+                "就算你問我理由，我也只能回答就是想這麼做……",
+                "是啊……因為告訴你秘密的場所……就是特別的證明嘛。",
+                "也就是說，老師是我特別的人。"
             ],
             Korean: [
-                "왜 그런지 물어봐도, 내가 말할 수 있는 건...",
-                "하지만 보시다시피... 누군가에게 당신의 비밀 스피드를 보여주면 그들이 특별하다는 증거가 됩니다.",
-                "즉... 넌 내겐 특별한 사람이야, 선생님"
-            ]
+                "왜냐고 물어보면, 딱히 할 말은 없지만……",
+                "그렇네…… 비밀 장소를 알려주는 건, 특별하다는 증거니까.",
+                "선생님은, 나의 특별한 사람이라서."
+            ],
+            Thai: ["ถ้าถามหาเหตุผลละก็ ฉันคงตอบไม่ได้...","แต่ก็นั่นสินะ... ก็การบอกสถานที่ลับให้รู้ คือหลักฐาน ที่แสดงว่าพิเศษนี่นา","ก็เพราะคุณครู เป็นคนพิเศษของฉัน"]
         }
     },
     {
@@ -169,9 +174,9 @@ const AUDIO_DETAIL = [
                 "まあでも……私の心は、ちょっと騒がしいんだけどね。"
             ],
             English: [
-                "...Hehe.",
-                "It's really quiet here, isn't it?",
-                "Well, even so... my heart is actually beating a little too fast right now."
+                "...Fufu.",
+                "It's nice and quiet, isn't it?",
+                "Despite that... I think my heart's beating a bit loudly right now."
             ],
             Chinese: [
                 "……嗯。",
@@ -179,15 +184,16 @@ const AUDIO_DETAIL = [
                 "但是嘛……我的内心啊，稍微有点心动不止呢。。"
             ],
             TraditionalChinese: [
-                "……嗯。",
+                "……呵呵。",
                 "這裡很安靜吧？",
-                "但是嘛……我的內心啊，稍微有點心動不止呢。。"
+                "不過……我的心，倒是有點吵鬧呢。"
             ],
             Korean: [
-                "...이봐요",
-                "이곳은 정말 조용해요?",
-                "그래도... 제 심장은 너무 빨리 뛰고 있어요."
-            ]
+                "……후후.",
+                "여기, 조용하지?",
+                "그렇지만…… 내 마음은, 조금 시끄러울지도."
+            ],
+            Thai: ["ฮุฮุ...","ที่นี่เงียบดีใช่มั้ยล่ะ?","แต่ว่า... หัวใจของฉัน มันอาจจะส่งเสียงดังนิดหน่อยก็ได้"]
         }
     }
 ];
@@ -299,7 +305,7 @@ function playVoiceline() {
 			track.play().catch(finish);
 
 			if (dialogBox) {
-				textbox.textContent = dialog[window.selectedLanguage][index];
+				textbox.textContent = getSubtitleText(dialog, window.selectedLanguage, index);
 				textbox.style.opacity = 1;
 			}
 		},
@@ -473,6 +479,16 @@ function setMouse(event) {
 	return { x: ax - canvas.width * positionX, y: ay - canvas.height * positionY };
 }
 
+function getSubtitleText(dialog, language, index) {
+	let text = dialog?.[language]?.[index];
+	if (text == null && language === 'Thai') {
+		language = 'English';
+		text = dialog?.[language]?.[index];
+	}
+	textbox.lang = subtitleLocales[language];
+	return text ?? "";
+}
+
 function updateSubtitleLanguage() {
 	let language = subtitleLanguagePreference;
 	if (language === 'auto') {
@@ -486,6 +502,8 @@ function updateSubtitleLanguage() {
 			language = 'Japanese';
 		} else if (primary === 'ko' || primary === 'korean' || primary === 'koreana') {
 			language = 'Korean';
+		} else if (primary === 'th' || primary === 'thai') {
+			language = 'Thai';
 		} else {
 			language = 'English';
 		}
@@ -495,7 +513,7 @@ function updateSubtitleLanguage() {
 	window.selectedLanguage = language;
 	textbox.lang = subtitleLocales[language];
 	const clip = currentTracks.at(-1);
-	if (dialogBox && clip) textbox.textContent = clip.dialog[language][clip.index];
+	if (dialogBox && clip) textbox.textContent = getSubtitleText(clip.dialog, language, clip.index);
 }
 
 function init() {
